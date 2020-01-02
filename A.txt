@@ -1,0 +1,23 @@
+03-a 1. 구글 메일 보내기(gmail) - 메일 메시지 생성
+파이썬으로 메일을 보내기 위해서는 SMTP서버와 MIME을 사용
+#Simple Mail Transfer Protocol, Multipurpose Internet Mail Extentions
+우체국 같은 존재의 SMTP, 네이버와 구글은 각각 다른 SMTP서버를 사용
+import smtplib (smpt 라이브러리로 파이썬에서 SMTP서버를 사용하는걸 도와줌)
+다국어, 첨부파일등의 기능들을 위해서는 MIME객체도 필요
+메일을 보낼때 메일에 대한 데이터(메세지)를 만들어야 하는데, 이때 MIME객체가 필요
+함수에 각각 보내는 구글 이메일주소, 비번, 받을 이메일 주소를 넣은 뒤 구글 SMTP서버 적기
+보낼 메일의 정보를 전용함수 as_string을 이용하여 텍스트 형태로 전환해야 메일로 전송가능
+
+03-a 2.구글 메일 보내기(gmail) - 메일 전송하기
+smtp포트에는 종류가 여러가지 있는데, 특정 포트에 따라 쓰임새가 나뉨
+s.starttls()로 TLS 보안처리, s.login()에 보내는 이메일 주소와 비번 함수 넣어 로그인
+s.sendmail()에는 보내는 이메일 주소, 받는 주소, 문자열로 변경한 msg.as_string
+전송을 마친 뒤 s.close()로 smtp 서버와의 연결을 종료
+메일을 정상적으로 보내려면 보내는 계정의 보안 설정에서 보안 수준 낮은앱 엑세스를 허용으로 변경
+
+03-a 3. 구글 메일 보내기(gmail) - 파일 첨부하기
+예시를 위하여 첨부파일로 보낼 메모장 파일 하나 생성
+텍스트를 관장하는 MINEText뿐만아니라 MIMEMultipart와 MIMEApplication또한 import
+MINEText와 MINEApplication을 따로 두번 보낼수가 없기 때문에 MINEMultipart를 사용
+MIMEMultipart는 글을 저장하는 MIMEText와 파일을 저장하는 MIMEApplication을 담는 택배상자 역할을 함
+첨부파일 지정시 파이썬 파일 폴더 밖의 파일의 경우 앞에 경로를 지정해야함 (파일경로+etcFileName)
