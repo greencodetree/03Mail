@@ -21,3 +21,8 @@ s.sendmail()에는 보내는 이메일 주소, 받는 주소, 문자열로 변�
 MINEText와 MINEApplication을 따로 두번 보낼수가 없기 때문에 MINEMultipart를 사용
 MIMEMultipart는 글을 저장하는 MIMEText와 파일을 저장하는 MIMEApplication을 담는 택배상자 역할을 함
 첨부파일 지정시 파이썬 파일 폴더 밖의 파일의 경우 앞에 경로를 지정해야함 (파일경로+etcFileName)
+
+03-c 4. 네이버 메일 보내기
+네이버도 구글과 마찬가지로 접근 허용을 해야 사용 가능
+내 메일함 설정 - POP3/IMAP 설정 - IMAP/SMTP 사용 허용
+Gmail 버전과 다른점은 서버주소밖에 없기 때문에 코드를간단하게 수정 가능
